@@ -35,7 +35,6 @@ public class BadAppleApplication {
         } else{
             System.out.println("There is no such command. Use \"help\" to see all available commands");
         }
-git g
     }
 
     private static void executeHelp(){
