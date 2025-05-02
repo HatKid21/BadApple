@@ -47,9 +47,22 @@ public class Converter {
     }
 
     public void convertToFrame(String videoPath){
+
+        File outputFile = new File(outputPath);
+
         if (new File(outputPath).exists()){
             System.out.println("This file already exists");
             return;
+        }
+
+        File outputDir = outputFile.getParentFile();
+        if (outputDir != null && !outputDir.exists()){
+            if (outputDir.mkdirs()){
+                System.out.println("Created directory: " + outputDir.getAbsolutePath());
+            } else {
+                System.err.println("Failed to create directory: " + outputDir.getAbsolutePath());
+                return;
+            }
         }
 
         try {
